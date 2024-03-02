@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:green_app/models/products_model.dart';
 
 class ProductCard extends StatelessWidget {
-  final bool process = false;
-  const ProductCard({Key? key});
-
+  final Product product;
+  const ProductCard({Key? key, required this.product}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -38,11 +38,11 @@ class ProductCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Brokoli",
+                        product.productName,
                         style: TextStyle(
                             fontSize: 15, fontWeight: FontWeight.w900),
                       ),
-                      Text(process == false ? 'Selesai' : 'Proses'),
+                      Text(product.isProcessed ? 'Selesai' : 'Proses'),
                       Padding(
                         padding: const EdgeInsets.only(left: 50),
                         child: SizedBox(

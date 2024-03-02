@@ -18,7 +18,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
 
   final List<Widget> _pages = [
     const HomePage(),
-    const ProductPage(),
+    ProductPage(),
     const AddPage(),
     const HistoryPage(),
     const ProfilePage(),
@@ -45,7 +45,6 @@ class _BottomNavbarState extends State<BottomNavbar> {
             color: Colors.white,
           ),
           Icon(Icons.shopping_bag, color: Colors.white),
-          Icon(Icons.add, size: 50, color: Colors.white),
           Icon(Icons.history, color: Colors.white),
           Icon(Icons.person, color: Colors.white),
         ],
