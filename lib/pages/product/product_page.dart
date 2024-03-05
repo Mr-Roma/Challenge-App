@@ -10,7 +10,7 @@ class ProductPage extends StatelessWidget {
 
   void createProduct(String productName, String productDescription) {
     final newProduct = {
-      'nameProduct': productName,
+      'nameProduct': nameController.text,
       'description': productDescription,
       'status': false,
       'timestamp': DateTime.now().microsecondsSinceEpoch
@@ -19,7 +19,6 @@ class ProductPage extends StatelessWidget {
   }
 
   ProductPage({Key? key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -37,10 +36,10 @@ class ProductPage extends StatelessWidget {
                     .snapshots(),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(child: CircularProgressIndicator());
+                    return const Center(child: CircularProgressIndicator());
                   }
                   if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-                    return Center(child: Text('Tidak ada Data'));
+                    return const Center(child: Text('Tidak ada Data'));
                   }
 
                   return GridView.builder(

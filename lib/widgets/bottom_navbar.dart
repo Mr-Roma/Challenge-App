@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:green_app/pages/add/add_page_items.dart';
 import 'package:green_app/pages/history/history_page.dart';
 import 'package:green_app/pages/home/home_page.dart';
 import 'package:green_app/pages/product/product_page.dart';
@@ -19,7 +18,6 @@ class _BottomNavbarState extends State<BottomNavbar> {
   final List<Widget> _pages = [
     const HomePage(),
     ProductPage(),
-    const AddPage(),
     const HistoryPage(),
     const ProfilePage(),
   ];
@@ -40,13 +38,37 @@ class _BottomNavbarState extends State<BottomNavbar> {
         onTap: _onItemTapped,
         index: _pageIndex,
         items: const <Widget>[
-          Icon(
-            Icons.home,
-            color: Colors.white,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.home, color: Colors.white),
+              Text('Home', style: TextStyle(color: Colors.white, fontSize: 12)),
+            ],
           ),
-          Icon(Icons.shopping_bag, color: Colors.white),
-          Icon(Icons.history, color: Colors.white),
-          Icon(Icons.person, color: Colors.white),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.shopping_bag, color: Colors.white),
+              Text('Product',
+                  style: TextStyle(color: Colors.white, fontSize: 12)),
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.history, color: Colors.white),
+              Text('History',
+                  style: TextStyle(color: Colors.white, fontSize: 12)),
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.person, color: Colors.white),
+              Text('Profile',
+                  style: TextStyle(color: Colors.white, fontSize: 12)),
+            ],
+          ),
         ],
       ),
     );

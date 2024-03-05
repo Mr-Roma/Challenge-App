@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:green_app/models/products_model.dart';
+import 'package:green_app/pages/product/request_productpage.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
@@ -8,7 +9,7 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
-      child: Container(
+      child: SizedBox(
         child: Column(
           children: [
             ClipRRect(
@@ -39,7 +40,7 @@ class ProductCard extends StatelessWidget {
                     children: [
                       Text(
                         product.productName,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 15, fontWeight: FontWeight.w900),
                       ),
                       Text(product.isProcessed ? 'Selesai' : 'Proses'),
@@ -50,15 +51,21 @@ class ProductCard extends StatelessWidget {
                           height: 30, // Adjust the height as needed
                           child: ElevatedButton(
                             onPressed: () {
-                              // Action to perform when the button is pressed
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const RequestProductPage(),
+                                ),
+                              ); // Action to perform when the button is pressed
                             },
                             style: ButtonStyle(
                               backgroundColor: MaterialStateProperty.all<Color>(
-                                Color.fromRGBO(
+                                const Color.fromRGBO(
                                     98, 193, 114, 1.0), // Corrected opacity
                               ),
                             ),
-                            child: Text(
+                            child: const Text(
                               'Detail',
                               style: TextStyle(
                                   fontSize: 12,
